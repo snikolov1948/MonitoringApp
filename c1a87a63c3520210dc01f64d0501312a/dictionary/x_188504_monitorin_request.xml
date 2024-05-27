@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="78793ea3c3520210dc01f64d05013124" label="Monitoring Request" max_length="40" name="x_188504_monitorin_request" type="collection">
+        <element label="Business Case" mandatory="true" max_length="4000" name="business_case" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element default="javascript:gs.getUser().getID()" label="Opened By" mandatory="true" max_length="32" name="opened_by" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element choice="1" default="new" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="10" value="new"/>
+                <element inactive_on_update="false" label="In Progress" sequence="20" value="progress"/>
+                <element inactive_on_update="false" label="On Hold" sequence="30" value="hold"/>
+                <element inactive_on_update="false" label="Completed" sequence="40" value="complete"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="50" value="cancelled"/>
+            </choice>
+        </element>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element label="Work Notes" max_length="4000" name="work_notes" type="journal_input"/>
+        <index name="index">
+            <element name="opened_by"/>
+        </index>
+        <index name="index2">
+            <element name="sys_class_name"/>
+        </index>
+    </element>
+</database>
