@@ -3,6 +3,7 @@
         <element label="Additional Information" max_length="2000" name="additional_information" type="string"/>
         <element label="Assigned To" mandatory="true" max_length="32" name="assigned_to" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element label="Business Case" mandatory="true" max_length="4000" name="business_case" type="string"/>
+        <element label="Food Expenses" max_length="32" name="food_expenses" type="currency2"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element default="javascript:gs.getUser().getID()" label="Opened By" mandatory="true" max_length="32" name="opened_by" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element choice="1" default="new" label="Status" max_length="40" name="status" type="choice">
@@ -15,15 +16,25 @@
             </choice>
         </element>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element label="Total Expenses" max_length="32" name="total_expenses" type="currency2"/>
+        <element label="Travel Expenses" max_length="32" name="travel_expenses" type="currency2"/>
         <element label="Work Notes" max_length="4000" name="work_notes" type="journal_input"/>
         <index name="index">
-            <element name="assigned_to"/>
+
+            <element name="food_expenses"/>
+
         </index>
         <index name="index2">
             <element name="opened_by"/>
         </index>
         <index name="index3">
             <element name="sys_class_name"/>
+        </index>
+        <index name="index4">
+            <element name="total_expenses"/>
+        </index>
+        <index name="index5">
+            <element name="travel_expenses"/>
         </index>
     </element>
 </database>
